@@ -1,25 +1,163 @@
+import { useRouter } from "expo-router";
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import COLORS from "../../constants/colors";
+import { useThemeStore } from "../../store/themeStore";
+
+const DATA = {
+  programming: {
+    title: "Programming",
+    items: ["JavaScript", "Python", "C++"],
+  },
+  linux: {
+    title: "Linux Commands",
+    items: ["Bash", "SSH", "Permissions"],
+  },
+  databases: {
+    title: "Databases",
+    items: ["MongoDB", "PostgreSQL", "MySQL"],
+  },
+  shortcuts: {
+    title: "Keyboard Shortcuts",
+    items: ["VS Code", "Windows", "Mac"],
+  },
+  other: {
+    title: "Other",
+    items: ["Git", "Docker"],
+  },
+};
 
 export default function Home() {
+  const router = useRouter();
+  const darkMode = useThemeStore((state) => state.darkMode);
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>This is the Home Tab</Text>
-    </View>
+    <ScrollView
+      style={[
+        styles.container,
+        { backgroundColor: darkMode ? "#121212" : COLORS.white },
+      ]}
+    >
+      <View style={styles.header}>
+        <Text
+          style={[
+            styles.introTitle,
+            { color: darkMode ? "#fff" : COLORS.primary },
+          ]}
+        >
+          Welcome to StarLab Cheatsheets
+        </Text>
+        <Text
+          style={[
+            styles.introText,
+            { color: darkMode ? "#ccc" : COLORS.textSecondary },
+          ]}
+        >
+          Tap a category, pick a topic, and view cheatsheets instantly. Boost
+          your productivity and skill.
+        </Text>
+      </View>
+
+      {Object.entries(DATA).map(([key, section]) => (
+        <View
+          key={key}
+          style={[
+            styles.card,
+            {
+              backgroundColor: darkMode
+                ? "#1e1e1e"
+                : COLORS.cardBackground || "#f8f8f8",
+            },
+          ]}
+        >
+          <Text
+            style={[
+              styles.cardTitle,
+              { color: darkMode ? "#fff" : COLORS.primary },
+            ]}
+          >
+            {section.title}
+          </Text>
+
+          <View style={styles.itemList}>
+            {section.items.map((item) => (
+              <TouchableOpacity
+                key={item}
+                style={[
+                  styles.itemButton,
+                  {
+                    backgroundColor: darkMode ? COLORS.primary : COLORS.primary,
+                  },
+                ]}
+                onPress={() =>
+                  router.push({
+                    pathname: "/cheatsheet",
+                    params: { category: section.title, item },
+                  })
+                }
+              >
+                <Text style={styles.itemText}>{item}</Text>
+              </TouchableOpacity>
+            ))}
+          </View>
+        </View>
+      ))}
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: COLORS.white,
-    alignItems: "center",
-    justifyContent: "center",
+    padding: 16,
   },
-  text: {
+  header: {
+    marginBottom: 20,
+  },
+  introTitle: {
+    fontSize: 24,
+    fontWeight: "700",
+    marginBottom: 6,
+  },
+  introText: {
+    fontSize: 14,
+    lineHeight: 20,
+  },
+  card: {
+    borderRadius: 12,
+    padding: 16,
+    marginBottom: 16,
+    shadowColor: "#000",
+    shadowOpacity: 0.05,
+    shadowRadius: 6,
+    elevation: 3,
+  },
+  cardTitle: {
     fontSize: 20,
-    color: COLORS.primary,
-    fontWeight: "bold",
+    fontWeight: "600",
+    marginBottom: 10,
+  },
+  itemList: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: 10,
+  },
+  itemButton: {
+    paddingVertical: 8,
+    paddingHorizontal: 14,
+    borderRadius: 20,
+    marginRight: 8,
+    marginBottom: 8,
+  },
+  itemText: {
+    color: "#fff",
+    fontWeight: "500",
+    fontSize: 14,
   },
 });
