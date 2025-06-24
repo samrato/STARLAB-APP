@@ -20,7 +20,7 @@ const DATA = {
       "Go",
       "Express",
       "Kotlin",
-      "CS33",
+      "CSS",
       "HTML",
       "Laravel",
       "PHP",
