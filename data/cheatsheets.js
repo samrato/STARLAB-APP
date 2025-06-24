@@ -21,8 +21,8 @@ export const CHEATSHEETS = {
   hello = 'Hello World'
   
   multi_string = """Multiline Strings
-  Lorem ipsum dolor sit amet,
-  consectetur adipiscing elit"""
+  my name is python,
+  i am a programming language"""
   \`\`\`
   
   ---
@@ -30,8 +30,8 @@ export const CHEATSHEETS = {
   ## 📌 Python F-Strings
   
   \`\`\`python
-  name = "John"
-  age = 25
+  name = "willington"
+  age = 20
   print(f"My name is {name} and I am {age} years old.")
   \`\`\`
   
@@ -221,6 +221,6 @@ export const CHEATSHEETS = {
   \`\`\`
       `
     }
-    // Add more items as needed
+   
   };
   
