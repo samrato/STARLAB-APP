@@ -13,25 +13,40 @@ import { useThemeStore } from "../../store/themeStore";
 const DATA = {
   programming: {
     title: "Programming",
-    items: ["JavaScript", "Python", "C++"],
-  },
-  linux: {
-    title: "Linux Commands",
-    items: ["Bash", "SSH", "Permissions"],
+    items: [
+      "C",
+      "C++",
+      "Java",
+      "Go",
+      "Express",
+      "Kotlin",
+      "CS33",
+      "HTML",
+      "Laravel",
+      "PHP",
+      "JavaScript",
+      "Python",
+      "Rust",
+    ],
   },
   databases: {
     title: "Databases",
-    items: ["MongoDB", "PostgreSQL", "MySQL"],
+    items: ["MongoDB", "Neo4j", "MySQL", "Redis", "PostgreSQL"],
+  },
+  linux: {
+    title: "Linux Commands",
+    items: ["Bash", "SSH", "Chmod", "Curl", "Tmux"],
+  },
+  toolkits: {
+    title: "Toolkits",
+    items: ["Git", "Docker"],
   },
   shortcuts: {
     title: "Keyboard Shortcuts",
     items: ["VS Code", "Windows", "Mac"],
   },
-  other: {
-    title: "Other",
-    items: ["Git", "Docker"],
-  },
 };
+
 
 export default function Home() {
   const router = useRouter();
