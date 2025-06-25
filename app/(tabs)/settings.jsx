@@ -16,13 +16,22 @@ export default function Settings() {
   const toggleDarkMode = useThemeStore((state) => state.toggleDarkMode);
 
   const openAbout = () =>
-    alert("StarLab is a story sharing and learning app powered by community.");
-  const openPrivacy = () => alert("We never share your data.");
+    alert(`StarLab is a dynamic, all-in-one cheatsheet and learning platform built to help developers and students quickly access essential programming knowledge in one place. It offers concise, easy-to-navigate references for multiple programming languages and technologies — from beginner to advanced.
+  
+  Developed and maintained by Willington Juma, StarLab is focused on empowering the developer community with a clean, fast, and offline-accessible resource.`);
+  
+  const openPrivacy = () =>
+    alert(`Your privacy matters to us. We never share, sell, or misuse your data. All usage is stored locally unless explicitly synced.`);
+  
   const openFeedback = () =>
-    alert("Send your feedback to feedback@starlab.app");
-  const openDiscover = () => alert("Explore curated content inside the app!");
-  const openContact = () => alert("Contact us at support@starlab.app");
-
+    alert(`We’d love to hear from you! Send your feedback or suggestions to:\n📧  Email: willingtonejumamconyango@gmail.com\n`);
+  
+  const openDiscover = () =>
+    alert(`Explore curated cheatsheets, trending programming concepts, and hidden gems — all inside StarLab!`);
+  
+  const openContact = () =>
+    alert(`📞 WhatsApp: 0714 747 942\n💬 We're here to help — reach out anytime!`);
+  
   return (
     <ScrollView
       contentContainerStyle={[

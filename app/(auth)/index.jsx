@@ -19,7 +19,9 @@ export default function Welcome() {
   };
 
   const handleDiscover = () => {
-    alert("Explore features and stories in StarLab!");
+    alert(
+      "🌟 StarLab is an interactive, categorized cheat sheet app with concise syntax, code patterns, and programming wisdom — ideal for developers of all levels.\n\nPowered by Willington Juma. 🚀"
+    );
   };
 
   return (
@@ -36,18 +38,25 @@ export default function Welcome() {
           />
           <Text style={styles.title}>Welcome to StarLab</Text>
           <Text style={styles.subtitle}>
-            Discover your space to learn, grow, and build amazing things.
+            StarLab is an interactive, categorized cheat sheet app that provides
+            concise syntax, code patterns, and key concepts across multiple
+            programming languages — ideal for beginners, students, and
+            professionals.
           </Text>
         </View>
 
         <View style={styles.actions}>
           <TouchableOpacity style={styles.button} onPress={handleGetStarted}>
-            <Text style={styles.buttonText}> Get Started</Text>
+            <Text style={styles.buttonText}>🚀 Get Started</Text>
           </TouchableOpacity>
 
           <TouchableOpacity onPress={handleDiscover}>
             <Text style={styles.discoverText}>🔍 Discover</Text>
           </TouchableOpacity>
+
+          <Text style={styles.footer}>
+            Powered by starlabtech
+          </Text>
         </View>
       </View>
     </KeyboardAvoidingView>
@@ -113,5 +122,12 @@ const styles = StyleSheet.create({
     color: COLORS.primary,
     textDecorationLine: "underline",
     fontWeight: "500",
+  },
+  footer: {
+    marginTop: 20,
+    fontSize: 13,
+    color: COLORS.text,
+    textAlign: "center",
+    opacity: 0.7,
   },
 });
